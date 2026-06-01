@@ -1,12 +1,32 @@
 <html>
 <head>
-  <link rel="stylesheet" href="css/main.css">
-  <title>Portafolio personal</title>
+    <link rel="stylesheet" href="css/main.css">
+    <title>busqueda</title>
 </head>
 <body>
-  <h1> Cristopher león chavess </h1> 
-<p> primer trabajo   </p>
-  <img src="img/foto1.jpg">
-</body>
+  <input type="text" id="buscador" placeholder="Filtrar lista...">
 
+  <ul id="lista-productos">
+    <li>Manzanas</li>
+    <li>Plátanos</li>
+    <li>Mangos</li>
+    <li>Fresas</li>
+  </ul>
+
+  <script>
+    document.getElementById('buscador').addEventListener('input', function(e) {
+      let texto = e.target.value.toLowerCase();
+      let elementos = document.querySelectorAll('#lista-productos li');
+
+      elementos.forEach(item => {
+        if(item.textContent.toLowerCase().includes(texto)) {
+          item.style.display = ''; // Muestra el elemento
+        } else {
+          item.style.display = 'none'; // Lo oculta
+        }
+      });
+    });
+  </script>
+
+</body>
 </html>
