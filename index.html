@@ -4,29 +4,10 @@
     <title>busqueda</title>
 </head>
 <body>
-  <input type="text" id="buscador" placeholder="Filtrar lista...">
-
-  <ul id="lista-productos">
-    <li>Manzanas</li>
-    <li>Plátanos</li>
-    <li>Mangos</li>
-    <li>Fresas</li>
-  </ul>
-
-  <script>
-    document.getElementById('buscador').addEventListener('input', function(e) {
-      let texto = e.target.value.toLowerCase();
-      let elementos = document.querySelectorAll('#lista-productos li');
-
-      elementos.forEach(item => {
-        if(item.textContent.toLowerCase().includes(texto)) {
-          item.style.display = ''; // Muestra el elemento
-        } else {
-          item.style.display = 'none'; // Lo oculta
-        }
-      });
-    });
-  </script>
+    <form action="/buscar" method="GET" class="search-container">
+      <input type="search" name="q" placeholder="¿Qué estás buscando...?" required>
+      <button type="submit">Buscar</button>
+    </form>
 
 </body>
 </html>
